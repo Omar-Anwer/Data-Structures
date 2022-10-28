@@ -12,19 +12,13 @@ using namespace std;
 
 //template <typename item_type>
 
-typedef struct Node Node;
+typedef double itemtype_t;
 struct Node
 {
-    int item;
+    itemtype_t item;
     Node* next;   
-    /*
-    #if (LIST_TYPE == DOUBLY)
-    Node* prev;
-    #endif
-    */
 };
 
-typedef struct List List;
 struct List
 {
     Node* head = NULL;
@@ -39,7 +33,7 @@ struct List
         return len;
     }
 
-    void push_back(int val)
+    void push_back(itemtype_t val)
     {
         //insert node at the end
         Node* n = new Node;
@@ -57,7 +51,7 @@ struct List
         ++len;
     }
 
-    void push_front(int val)
+    void push_front(itemtype_t val)
     {
         //insert node at beginning
         Node* n = new Node;
@@ -111,7 +105,7 @@ struct List
 		
     }
 
-    void insert_at(int pos, int val)
+    void insert_at(int pos, itemtype_t val)
     {
         if (pos > len + 1 || pos < 1) {
             cout << "\"out of range\"" << "\n";
@@ -141,7 +135,7 @@ struct List
         }
     }
 
-    void remove(int val)
+    void remove(itemtype_t val)
     {
         if (isEmpty()) {
             return;
@@ -198,7 +192,7 @@ struct List
         Node* n = head;
         for (int i = len; i != 0; --i)
         {
-            cout << n->item << "\t";
+            cout << (n->item) << "\t";
             n = n->next;
         }
         /*
@@ -220,7 +214,7 @@ int main()
 {
     List first, second, third;
 
-    first.push_back(5);
+    first.push_back(5.5);
     first.push_back(10);
     first.push_back(99);
     first.push_back(246);
