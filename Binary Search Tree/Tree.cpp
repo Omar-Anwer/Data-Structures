@@ -6,8 +6,10 @@
 using namespace std;
 
 // Tree node	== Tree* pnode
-// node			== (*pnode) 
+// node		== (*pnode) 
 // node->left	== &((*pnode)->left)
+// node->right	== &((*pnode)->right)
+
 typedef int itemtype_t;
 
 struct TreeNode
@@ -41,7 +43,6 @@ void inOrderTraversal(Tree node, void(pfunc)(itemtype_t))
 	inOrderTraversal((node)->left, pfunc);
 	(*pfunc)((node)->item);
 	inOrderTraversal((node)->right, pfunc);
-
 }
 
 void postOrderTraversal(Tree node, void(pfunc)(itemtype_t))
@@ -88,13 +89,7 @@ void levelOrderTraversal(Tree node, void(pfunc)(itemtype_t))
 	}
 }
 
-enum TreeTraversalOrder
-{
-	preOrder,
-	inOrder,
-	postOrder,
-	levelOrder
-};
+enum TreeTraversalOrder { preOrder, inOrder, postOrder, levelOrder };
 
 
 void traverse(Tree node, void(pfunc)(itemtype_t), TreeTraversalOrder order)
@@ -131,7 +126,6 @@ Tree newNode(itemtype_t val)
 
 Tree insertNode(Tree node, itemtype_t val)
 {
-
 	if (node == NULL) {// empty tree
 		//return newNode(val);
 		Tree node = new TreeNode;
@@ -157,7 +151,6 @@ Tree removeNode(Tree node)
 	if (node == NULL) {// empty tree
 		return NULL;
 	}
-
 	//--noNodes;
 }
 
@@ -229,12 +222,9 @@ itemtype_t maxTree(Tree node)
 }
 
 
-
-
 int main()
 {
 	Tree root = NULL;
-
 	Tree myTree = insertNode(root, 4);
 	
 	insertNode(myTree, 11);
